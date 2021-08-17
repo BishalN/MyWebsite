@@ -9,9 +9,14 @@ export const usePosts = () => {
             title
             author
             slug
+            date
             image {
               childImageSharp {
-                gatsbyImageData(width: 200)
+                gatsbyImageData(
+                  width: 500
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -27,6 +32,7 @@ export const usePosts = () => {
     slug: post.frontmatter.slug,
     image: post.frontmatter.image,
     excerpt: post.excerpt,
+    date: post.frontmatter.date,
   }));
 };
 
