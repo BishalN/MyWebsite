@@ -22,7 +22,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -36,10 +35,20 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'pages',
-        path: './src/pages/',
+        name: 'posts',
+        path: './src/posts/',
       },
-      __key: 'pages',
+      __key: 'posts',
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/layout.tsx'),
+        },
+        gatsbyRemarkPlugins: [{ resolve: 'gatsby-remark-images' }],
+        plugins: [{ resolve: 'gatsby-remark-images' }],
+      },
     },
   ],
 };
