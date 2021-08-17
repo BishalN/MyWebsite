@@ -50,5 +50,14 @@ module.exports = {
         plugins: [{ resolve: 'gatsby-remark-images' }],
       },
     },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        production: true,
+        disable: !process.env.ANALYZE_BUNDLE_SIZE,
+        generateStatsFile: true,
+        analyzerMode: 'static',
+      },
+    },
   ],
 };
