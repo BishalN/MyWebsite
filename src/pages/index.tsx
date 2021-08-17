@@ -1,12 +1,14 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSiteMetaData } from '../hooks/useSiteMetaData';
+import { usePosts } from '../hooks/usePosts';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { ProjectCard } from '../components/ProjectCard';
 import PostPreview from '../components/PostPreview';
 
 const Index = () => {
   const data = useSiteMetaData();
+  const posts = usePosts();
 
   return (
     <div className='container mx-auto px-4'>
@@ -18,7 +20,9 @@ const Index = () => {
 
           <div className='bg-gray-100 mt-10 rounded-md p-2 text-center max-w-md flex space-x-4 flex-wrap'>
             {data.favTechnologies.map((tech: string) => (
-              <p className='text-gray-800 '>{tech}</p>
+              <p key={tech} className='text-gray-800 '>
+                {tech}
+              </p>
             ))}
           </div>
 
@@ -27,7 +31,12 @@ const Index = () => {
             flex-wrap space-x-10'
           >
             {data.social.map((social) => (
-              <a href={social.link} target='_blank' rel='noopener noreferrer'>
+              <a
+                href={social.link}
+                key={social.link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 {social.media.includes('github') && (
                   <FaGithub size={30} className='cursor-pointer' />
                 )}
@@ -71,9 +80,9 @@ const Index = () => {
       </section>
 
       <section id='posts' className='space-y-10 mt-20'>
-        <PostPreview />
-        <PostPreview />
-        <PostPreview />
+        {posts.map((post) => (
+          <PostPreview key={post.slug} post={post} />
+        ))}
       </section>
     </div>
   );

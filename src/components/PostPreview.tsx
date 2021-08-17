@@ -1,16 +1,20 @@
 import React from 'react';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 
-const PostPreview = () => {
+const PostPreview = ({ post }) => {
+  const image = getImage(post.image);
+  console.log(post.image);
+  console.log(image);
+
   return (
     <div className='flex flex-col sm:flex-row justify-center space-x-5'>
-      <div className='bg-gray-200 p-4 rounded-lg w-4/12 h-40'></div>
+      <GatsbyImage image={image} alt={post.author} />
+
       <div>
         <p className='font-semibold text-gray-700 text-lg max-w-lg'>
-          This is the title of the posts Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. This is the title of the posts Lorem ipsum dolor sit
-          amet consectetur adipisicing elit.
+          {post.excerpt}
         </p>
-        <p className='text-gray-400 text-base'>24th March, 2020</p>
+        <p className='text-gray-400 text-base'>by {post.author}</p>
       </div>
     </div>
   );
