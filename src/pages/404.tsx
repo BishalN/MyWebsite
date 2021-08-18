@@ -1,3 +1,4 @@
+import React from 'react';
 import { GlobalLayout } from '../components/GlobalLayout';
 
 const NotFoundPage = () => {

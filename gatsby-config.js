@@ -13,17 +13,11 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-image',
-    'gatsby-plugin-postcss',
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: '\u0016',
-      },
-    },
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -48,15 +42,6 @@ module.exports = {
         },
         gatsbyRemarkPlugins: [{ resolve: 'gatsby-remark-images' }],
         plugins: [{ resolve: 'gatsby-remark-images' }],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-      options: {
-        production: true,
-        disable: !process.env.ANALYZE_BUNDLE_SIZE,
-        generateStatsFile: true,
-        analyzerMode: 'static',
       },
     },
   ],

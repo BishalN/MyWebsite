@@ -4,8 +4,6 @@ import { Link } from 'gatsby';
 
 const PostPreview = ({ post }) => {
   const image = getImage(post.image);
-  console.log(post.image);
-  console.log(image);
 
   return (
     <div className='flex flex-col sm:flex-row justify-center space-x-5'>
