@@ -20,8 +20,11 @@
     "@mdx-js/react": "^1.6.22",
     "autoprefixer": "^10.3.1",
     "gatsby": "^3.11.1",
+    "gatsby-plugin-favicon": "^3.1.6",
+    "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-google-analytics": "^3.11.0",
     "gatsby-plugin-image": "^1.11.0",
+    "gatsby-plugin-manifest": "^3.12.0",
     "gatsby-plugin-mdx": "^2.11.0",
     "gatsby-plugin-postcss": "^4.11.0",
     "gatsby-plugin-react-helmet": "^4.11.0",
@@ -38,6 +41,7 @@
     "tailwindcss": "^2.2.7"
   },
   "devDependencies": {
+    "@types/helmet": "^4.0.0",
     "cross-env": "^7.0.3"
   }
 }

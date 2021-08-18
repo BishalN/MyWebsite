@@ -23,7 +23,9 @@ const PostTemplate = ({ data: { mdx: post } }) => (
       <h1>{post.frontmatter.title}</h1>
       <p>Posted by {post.frontmatter.author}</p>
       <MDXRenderer>{post.body}</MDXRenderer>
-      <Link to='/'>&larr; back to all posts</Link>
+      <Link to='/blogs'>
+        <p className='text-blue-500 inline'> &larr;back to all posts</p>
+      </Link>
     </Layout>
   </GlobalLayout>
 );
