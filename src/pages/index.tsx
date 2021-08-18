@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { ProjectCard } from '../components/ProjectCard';
 import PostPreview from '../components/PostPreview';
 import { GlobalLayout } from '../components/GlobalLayout';
+import { Link } from 'gatsby';
 
 const Index = () => {
   const data = useSiteMetaData();
@@ -19,17 +20,9 @@ const Index = () => {
             <h1 className='font-bold text-xl text-center md:text-left md:text-4xl text-blue-500 '>
               {data.headingTitle}
             </h1>
-
-            <div className='bg-gray-100 mt-10 rounded-md p-2 text-center max-w-md flex space-x-4 flex-wrap'>
-              {data.favTechnologies.map((tech: string) => (
-                <p key={tech} className='text-gray-800 '>
-                  {tech}
-                </p>
-              ))}
-            </div>
-
+            <h4 className='mt-5 text-gray-600'>Follow me on</h4>
             <div
-              className='bg-gray-100 p-2 mt-5 rounded-md max-w-md flex space-x-10 items-center
+              className='mt-2 max-w-md flex space-x-10 items-center
             flex-wrap space-x-10'
             >
               {data.social.map((social) => (
@@ -82,9 +75,14 @@ const Index = () => {
         </section>
 
         <section id='posts' className='space-y-10 mt-20'>
+          <h3 className='text-center'>Blogs</h3>
           {posts.map((post) => (
             <PostPreview key={post.slug} post={post} />
           ))}
+
+          <Link to='/blogs'>
+            <p className='text-center text-blue-600 mt-10 mb-20'>See more</p>
+          </Link>
         </section>
       </div>
     </GlobalLayout>
